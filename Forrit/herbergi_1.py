@@ -18,7 +18,7 @@ class leikjaland(object):
         kyn = input('Veldu kyn, strákur eða stelpa: ')
         if kyn == 'strákur':
             win = GraphWin("strákur", 600, 600)
-            myImage = Image(Point(300,300), "strakur.gif")
+            myImage = Image(Point(300,300), "boy.gif")
             myImage.draw(win)
             txt = Text(Point(310,330),'Þú ert strákur')
             txt.draw(win)
@@ -27,7 +27,7 @@ class leikjaland(object):
             print('Þú ert ' +kyn)
         elif kyn == 'stelpa':
             win = GraphWin("stelpa", 600, 600)
-            myImage = Image(Point(300,300), "stelpa.gif")
+            myImage = Image(Point(300,300), "girl.gif")
             myImage.draw(win)
             txt = Text(Point(150,330),'Þú ert stelpa')
             txt.draw(win)
