@@ -18,7 +18,7 @@ class leikjaland():
     win = GraphWin("strákur", 600, 600)
     myImage = Image(Point(300,200), "castle.gif")
     myImage.draw(win)
-    txt = Text(Point(300,550),'Velkomin\\nn í leikjaland')
+    txt = Text(Point(300,550),'Velkomin\\nn í leikjaland!')
     txt.draw(win)
     time.sleep(3)
     win.close()
@@ -29,7 +29,7 @@ class leikjaland():
             win = GraphWin("strákur", 600, 600)
             myImage = Image(Point(300,200), "boy.gif")
             myImage.draw(win)
-            txt = Text(Point(300,550),'Þú ert strákur')
+            txt = Text(Point(300,550),'Þú ert strákur!')
             txt.draw(win)
             time.sleep(3)
             win.close()
@@ -37,12 +37,12 @@ class leikjaland():
             win = GraphWin("stelpa", 600, 600)
             myImage = Image(Point(300,300), "girl.gif")
             myImage.draw(win)
-            txt = Text(Point(300,550),'Þú ert stelpa')
+            txt = Text(Point(300,550),'Þú ert stelpa!')
             txt.draw(win)
             time.sleep(3)
             win.close()
         else:
-            print('Vinsamlega veldu kyn, strákur eða stelpa')
+            print('Vinsamlega veldu kyn: strákur eða stelpa')
             self.velja_kyn()
 
 # Hér byrjar herbergi_1
@@ -50,7 +50,7 @@ class leikjaland():
         #print('test 2')
         while (1):
             try:
-                fot= input('Viltu fara í skólann eða út að leika, velja\\skrifa skolafot eða utifot: ')
+                fot= input('Viltu fara í skólann eða út að leika? Velja\\skrifa skolafot eða utifot: ')
                 fot=fot
                 break
             except:
@@ -60,7 +60,7 @@ class leikjaland():
             self.skolastofa(bok,blom)
 # Leikmaður fer í útiveru(herbergi 3)
         elif fot == 'utifot':
-            print('Þú ert komin\\nn út')
+            print('Þú ert komin\\nn út!')
             self.utivera(bok,blom)
 # Ef ekki er valið skólaföt eða útiföt
         else:
@@ -73,7 +73,7 @@ class leikjaland():
         win = GraphWin("skólastofa", 600, 600)
         myImage = Image(Point(300,300), "School.gif")
         myImage.draw(win)
-        txt = Text(Point(310,50),'Velkomin\\nn í skólann')
+        txt = Text(Point(310,50),'Velkomin\\nn í skólann!')
         txt1 = Text(Point(310,550),'Nú ert þú í stærðfræði og þú átt að reikna 3 dæmi, gangi þér vel!')
         txt.draw(win)
         txt1.draw(win)
@@ -88,25 +88,25 @@ class leikjaland():
             bok=bok
             self.skipta_um_fot(bok,blom)
         elif daemi_1 != '11' and daemi_2=='72' and daemi_3 =='12':
-            print('Dæmi 1 er ekki rétt!. Reyndu aftur:')
+            print('Dæmi 1 er ekki rétt. Reyndu aftur:')
             self.skolastofa(bok,blom)
         elif daemi_1 == '11' and daemi_2 !='72' and daemi_3 =='12':
-            print('Dæmi 2 er ekki rétt!. Reyndu aftur:')
+            print('Dæmi 2 er ekki rétt. Reyndu aftur:')
             self.skolastofa(bok,blom)
         elif daemi_1 == '11' and daemi_2=='72' and daemi_3 !='12':
-            print('Dæmi 3 er ekki rétt!. Reyndu aftur:')
+            print('Dæmi 3 er ekki rétt. Reyndu aftur:')
             self.skolastofa(bok,blom)
         elif daemi_1 != '11' and daemi_2 !='72' and daemi_3 =='12':
-            print('Dæmi 1 og 2 eru ekki rétt!. Reyndu aftur:')
+            print('Dæmi 1 og 2 eru ekki rétt. Reyndu aftur:')
             self.skolastofa(bok,blom)
         elif daemi_1 != '11' and daemi_2=='72' and daemi_3 !='12':
-            print('Dæmi 1 og 3 eru ekki rétt!. Reyndu aftur:')
+            print('Dæmi 1 og 3 eru ekki rétt. Reyndu aftur:')
             self.skolastofa(bok,blom)
         elif daemi_1 == '11' and daemi_2 !='72' and daemi_3 !='12':
-            print('Dæmi 2 og 3 eru ekki rétt!. Reyndu aftur:')
+            print('Dæmi 2 og 3 eru ekki rétt. Reyndu aftur:')
             self.skolastofa(bok,blom)
         else:
-            print('ekkert er rétt. Reyndu aftur:')
+            print('Ekkert er rétt. Reyndu aftur!')
             self.skolastofa(bok,blom)
 
 # Leikmaðurinn fer í útiveru
@@ -124,7 +124,7 @@ class leikjaland():
         win = GraphWin("Dýr", 600, 600)
         myImage = Image(Point(300, 300), "dyr.gif")
         myImage.draw(win)
-        txt = Text(Point(300,550),'Teldu hvað það eru mörg svín á myndinni!')
+        txt = Text(Point(300,550),'Teldu hvað það eru mörg svín á myndinni')
         txt.draw(win)
         time.sleep(5)
         win.close()
@@ -144,25 +144,25 @@ class leikjaland():
             blom = blom
             self.skipta_um_fot(bok,blom)
         elif spurning1 != '3' and spurning2 == '4' and spurning3 == 'bíll':
-            print('Allt rétt nema 1 meistari, reyndu aftur!')
+            print('Allt rétt nema dæmi 1. Reyndu aftur!')
             self.utivera(bok,blom)
         elif spurning1 == '3' and spurning2 != '4' and spurning3 == 'bíll':
-            print('Allt rétt nema 2 meistari, reyndu aftur!')
+            print('Allt rétt nema dæmi 2. Reyndu aftur!')
             self.utivera(bok,blom)
         elif spurning1 == '3' and spurning2 == '4' and spurning3 != 'bíll':
-            print('Allt rétt nema 3 meistari, reyndu aftur!')
+            print('Allt rétt nema dæmi 3. Reyndu aftur!')
             self.utivera(bok,blom)
         elif spurning1 == '3' and spurning2 != '4' and spurning3 != 'bíll':
-            print('Dæmi 1 rétt meistari, reyndu aftur!')
+            print('Dæmi 2 og 3 eru ekki rétt. Reyndu aftur!')
             self.utivera(bok,blom)
         elif spurning1 != '3' and spurning2 == '4' and spurning3 != 'bíll':
-            print('Dæmi 2 rétt meistari, reyndu aftur!')
+            print('Dæmi 1 og 3 eru ekki rétt. Reyndu aftur!')
             self.utivera(bok,blom)
         elif spurning1 != '3' and spurning2 != '4' and spurning3 == 'bíll':
-            print('Dæmi 3 rétt meistari, reyndu aftur!')
+            print('Dæmi 1 og 2 eru ekki rétt. Reyndu aftur!')
             self.utivera(bok,blom)
         else:
-            print('Ekkert er rétt, reyndu aftur!')
+            print('Ekkert er rétt. Reyndu aftur!')
             self.utivera(bok,blom)
 
 # Fallið leyfir leikmanni að koma til baka og skipta um föt til að fara í hitt herbergið
@@ -173,7 +173,7 @@ class leikjaland():
             myImage = Image(Point(300,300), "playground.gif")
             myImage.draw(win)
             txt = Text(Point(310,50),'Þú ert búin\\nn í skólanum í dag')
-            txt1 = Text(Point(310,550),'Nú er tími til að fara í útiföt að drífa sig út að leika.')
+            txt1 = Text(Point(310,550),'Nú er tími til að fara í útiföt að drífa sig út að leika')
             txt.draw(win)
             txt1.draw(win)
             time.sleep(5)
@@ -182,7 +182,7 @@ class leikjaland():
         elif bok != 1 and blom == 1:
             self.skolastofa(bok,blom)
         elif bok == 1 and blom == 1:
-            print('Nú hefur þú klárað þrautirnar 2 og ert að fara í lokaborðið.')
+            print('Nú hefur þú klárað báðar þrautirnar og ert að fara í lokaborðið!')
             #herbergi4()
 
 def  main():
