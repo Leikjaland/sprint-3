@@ -1,4 +1,4 @@
-# Útgáfa 1.1
+# Útgáfa 1.2
 import sys
 import time
 import select
@@ -9,38 +9,45 @@ from graphics import *
 bok = 0
 blom = 0
 
-
-class leikjaland(object):
+class leikjaland():
+    def __init__(self,bok,blom):
+        self.bok = bok
+        self.blom = blom
 
 # Hér ver verið að taka á móti leikmanni og spyrja um kyn.
-    print('Velkomin\\nn í leikjaland')
+    win = GraphWin("strákur", 600, 600)
+    myImage = Image(Point(300,200), "castle.gif")
+    myImage.draw(win)
+    txt = Text(Point(300,550),'Velkomin\\nn í leikjaland')
+    txt.draw(win)
+    time.sleep(3)
+    win.close()
     def velja_kyn(self):
+        #print('test 1')
         kyn = input('Veldu kyn, strákur eða stelpa: ')
         if kyn == 'strákur':
             win = GraphWin("strákur", 600, 600)
-            myImage = Image(Point(300,300), "boy.gif")
+            myImage = Image(Point(300,200), "boy.gif")
             myImage.draw(win)
-            txt = Text(Point(310,330),'Þú ert strákur')
+            txt = Text(Point(300,550),'Þú ert strákur')
             txt.draw(win)
-            time.sleep(5)
+            time.sleep(3)
             win.close()
-            print('Þú ert ' +kyn)
         elif kyn == 'stelpa':
             win = GraphWin("stelpa", 600, 600)
             myImage = Image(Point(300,300), "girl.gif")
             myImage.draw(win)
-            txt = Text(Point(150,330),'Þú ert stelpa')
+            txt = Text(Point(300,550),'Þú ert stelpa')
             txt.draw(win)
-            time.sleep(5)
+            time.sleep(3)
             win.close()
-            print('Þú ert ' + kyn)
         else:
             print('Vinsamlega veldu kyn, strákur eða stelpa')
             self.velja_kyn()
 
 # Hér byrjar herbergi_1
     def Herbergi_1(self):
-        #print('test1')
+        #print('test 2')
         while (1):
             try:
                 fot= input('Viltu fara í skólann eða út að leika, velja\\skrifa skolafot eða utifot: ')
@@ -48,17 +55,13 @@ class leikjaland(object):
                 break
             except:
                 print ('Þú hefur ekki valið föt')
-
 # leikmaður fer í skolastofuna(herbergi 2)
         if fot == 'skolafot':
-            print('Þú ert komin\\nn í skólann')
             self.skolastofa(bok,blom)
-
 # Leikmaður fer í útiveru(herbergi 3)
         elif fot == 'utifot':
             print('Þú ert komin\\nn út')
             self.utivera(bok,blom)
-
 # Ef ekki er valið skólaföt eða útiföt
         else:
             print ('Þú hefur ekki valið föt')
@@ -66,8 +69,16 @@ class leikjaland(object):
 
 # Leikmaðurinn fer í skólastofu
     def skolastofa(self,bok,blom):
-        #print('test2')
-        print('Velkomin\\nn í skólann, nú ert þú í stærðfræði og þú átt að reikna 3 dæmi, gangi þér vel!')
+        #print('test 3')
+        win = GraphWin("skólastofa", 600, 600)
+        myImage = Image(Point(300,300), "School.gif")
+        myImage.draw(win)
+        txt = Text(Point(310,50),'Velkomin\\nn í skólann')
+        txt1 = Text(Point(310,550),'Nú ert þú í stærðfræði og þú átt að reikna 3 dæmi, gangi þér vel!')
+        txt.draw(win)
+        txt1.draw(win)
+        time.sleep(5)
+        win.close()
         daemi_1 = input('Hvað er 5+6? ')
         daemi_2 = input('hvað er 8*9? ')
         daemi_3 = input('Hvað er 15-3? ')
@@ -98,11 +109,9 @@ class leikjaland(object):
             print('ekkert er rétt. Reyndu aftur:')
             self.skolastofa(bok,blom)
 
+# Leikmaðurinn fer í útiveru
     def utivera(self,bok,blom):
-        #print('Test3')
-        print('Nú birtist mynd!')
-        print('Teldu hvað það eru mörg gul blóm á myndinni')
-
+        #print('Test 4')
         win = GraphWin("Blóm", 400, 400)
         myImage = Image(Point(200,100), "flow.gif")
         myImage.draw(win)
@@ -110,10 +119,8 @@ class leikjaland(object):
         txt.draw(win)
         time.sleep(5)
         win.close()
-
         spurning1 = input('Hvað voru mörg gul blóm á myndinni? ')
 
-        print('Nú birtist önnur mynd, teldu hvað það eru mörg svín á myndinni!')
         win = GraphWin("Dýr", 600, 600)
         myImage = Image(Point(300, 300), "dyr.gif")
         myImage.draw(win)
@@ -121,10 +128,8 @@ class leikjaland(object):
         txt.draw(win)
         time.sleep(5)
         win.close()
-
         spurning2 = input('Hvað eru mörg svín á myndinni? ')
 
-        print('Nú birtist síðasta myndin, skoðaðu vel hvað er á myndinni')
         win = GraphWin("Himinn", 600, 600)
         myImage = Image(Point(300, 300), "himinn.gif")
         myImage.draw(win)
@@ -132,9 +137,7 @@ class leikjaland(object):
         txt.draw(win)
         time.sleep(5)
         win.close()
-
         spurning3 = input('Hvað passar ekki inn í? Ský, himinn, bíll eða stjörnur? ')
-
         if spurning1 == '3' and spurning2 == '4' and spurning3 == 'bíll':
             print('Allt rétt meistari!')
             blom =+ 1
@@ -164,19 +167,26 @@ class leikjaland(object):
 
 # Fallið leyfir leikmanni að koma til baka og skipta um föt til að fara í hitt herbergið
     def skipta_um_fot(self,bok,blom):
-        #print('test4')
+        #print('test 5')
         if bok == 1 and blom != 1:
-            print('Þú ert búin\\nn í skólanum í dag, nú er tími til að fara í útiföt að drífa sig út að leika.')
+            win = GraphWin("útivera", 600, 600)
+            myImage = Image(Point(300,300), "playground.gif")
+            myImage.draw(win)
+            txt = Text(Point(310,50),'Þú ert búin\\nn í skólanum í dag')
+            txt1 = Text(Point(310,550),'Nú er tími til að fara í útiföt að drífa sig út að leika.')
+            txt.draw(win)
+            txt1.draw(win)
+            time.sleep(5)
+            win.close()
             self.utivera(bok,blom)
         elif bok != 1 and blom == 1:
-            print('Vonandi var gaman úti að leika, nú er tími til að fara í skólaföt að drífa sig í skólann.')
             self.skolastofa(bok,blom)
         elif bok == 1 and blom == 1:
             print('Nú hefur þú klárað þrautirnar 2 og ert að fara í lokaborðið.')
             #herbergi4()
 
 def  main():
-    leikur=leikjaland()
+    leikur=leikjaland(bok,blom)
     leikur.velja_kyn()
     leikur.Herbergi_1()
 
